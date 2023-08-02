@@ -14,28 +14,53 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugin list
 local plugins = {
+
+  -- Theme
   {
     'AlexvZyl/nordic.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require 'nordic' .load()
+      require("nordic").load()
     end
   },
+
+  -- Utility
   "nvim-tree/nvim-tree.lua",
+  "lervag/vimtex",
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {}
+  },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+  },
+
+  -- Visual
   "nvim-tree/nvim-web-devicons",
+  "nvim-treesitter/nvim-treesitter",
+  "lukas-reineke/indent-blankline.nvim",
+  {
+    "goolord/alpha-nvim",
+    lazy = true,
+  },
+  "nvim-lualine/lualine.nvim",
+
+  -- LSP && Snippets
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = 'v2.x',
     dependencies = {
       -- LSP Support
-      {"neovim/nvim-lspconfig"},             -- Required
-      {"williamboman/mason.nvim"},           -- Optional
-      {"williamboman/mason-lspconfig.nvim"}, -- Optional
+      {"neovim/nvim-lspconfig"},
+      {"williamboman/mason.nvim"},
+      {"williamboman/mason-lspconfig.nvim"},
 
       -- Autocompletion
-      {"hrsh7th/nvim-cmp"},     -- Required
-      {"hrsh7th/cmp-nvim-lsp"}, -- Required
+      {"hrsh7th/nvim-cmp"},
+      {"hrsh7th/cmp-nvim-lsp"},
     }
   },
   {
@@ -45,13 +70,6 @@ local plugins = {
   },
   "saadparwaiz1/cmp_luasnip",
   "mfussenegger/nvim-jdtls",
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-  },
-  "nvim-treesitter/nvim-treesitter",
-  "lervag/vimtex",
-  "lukas-reineke/indent-blankline.nvim",
 }
 
 -- Load installed plugins
@@ -62,3 +80,4 @@ require("leonardo.plugins.lsp")
 require("leonardo.plugins.nvim-tree")
 require("leonardo.plugins.treesitter")
 require("leonardo.plugins.lua-snip")
+require("leonardo.plugins.alpha-nvim")
