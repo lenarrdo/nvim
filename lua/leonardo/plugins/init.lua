@@ -17,7 +17,7 @@ local plugins = {
 
   -- Theme
   {
-    'AlexvZyl/nordic.nvim',
+    "AlexvZyl/nordic.nvim",
     lazy = false,
     priority = 1000,
     config = function()
@@ -28,6 +28,12 @@ local plugins = {
   -- Utility
   "nvim-tree/nvim-tree.lua",
   "lervag/vimtex",
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end
+  },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
