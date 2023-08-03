@@ -25,8 +25,8 @@ function()
 end,
 {silent = true})
 
--- Cycle backwards with CTRL + H
-vim.keymap.set({ "i", "s" }, "<C-h>",
+-- Cycle backwards with Shift + Tab
+vim.keymap.set({ "i", "s" }, "<S-Tab>",
 function()
   if luasnip.jumpable(-1) then
     luasnip.jump(-1)
