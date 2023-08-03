@@ -21,5 +21,11 @@ map("n", "<C-d>", "<C-d>zz", { noremap = true })
 map("n", "<C-u>", "<C-u>zz", { noremap = true })
 map("n", "<s-g>", "<s-g>zz", { noremap = true })
 
+-- Vimtex
+map("n", "<leader>ll", "<cmd>:VimtexCompile<cr>")
+
+-- Open Lazy
+map("n", "<leader>l", "<cmd>:Lazy<cr>")
+
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
