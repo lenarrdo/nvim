@@ -1,7 +1,3 @@
-local ret_filename = function()
-	return vim.fn.expand("%")
-end
-
 return {
 	s(
 		{ trig = "so", dscr = "Stampa senza andare a capo." },
@@ -10,17 +6,7 @@ return {
 			{
 				i(1),
 			},
-			{ delimiters = "<>" } -- manually specifying angle bracket delimiters
-		)
-	),
-	s(
-		{ trig = "sout", dscr = "Stampa e poi vai a capo." },
-		fmt(
-			"System.out.println(<>);",
-			{
-				i(1),
-			},
-			{ delimiters = "<>" } -- manually specifying angle bracket delimiters
+			{ delimiters = "<>" }
 		)
 	),
 	s(
