@@ -1,25 +1,22 @@
 return {
-	s(
-		{ trig = "so", dscr = "Stampa senza andare a capo." },
-		fmt(
-			"System.out.print(<>);",
-			{
-				i(1),
-			},
-			{ delimiters = "<>" }
-		)
-	),
-	s(
-		{ trig = "main", dscr = "public static void main(String[] args)" },
-		fmta(
-			[[
-        public static void main(String[] args) {
-          <>
-        }
-      ]],
-			{
-				i(1),
-			}
-		)
-	),
+  s({ trig = "so" },
+    fmta(
+      "System.out.print(<>);",
+      {
+        i(1),
+      }
+    )
+  ),
+  s({ trig = "main" },
+    fmta(
+    [[
+      public static void main(String[] args) {
+        <>
+      }
+    ]],
+      {
+        i(0),
+      }
+    )
+  ),
 }
