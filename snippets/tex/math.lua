@@ -167,55 +167,37 @@ return {
 
   s({trig = "sin", snippetType = "autosnippet"},
     fmta(
-      "\\sin(<>)",
-      {
-        i(1),
-      }
+      "\\sin", {}
     ),
     {condition = in_mathzone}
   ),
   s({trig = "Sin", snippetType = "autosnippet"},
     fmta(
-      "\\arcsin(<>)",
-      {
-        i(1),
-      }
+      "\\arcsin", {}
     ),
     {condition = in_mathzone}
   ),
   s({trig = "cos", snippetType = "autosnippet"},
     fmta(
-      "\\cos(<>)",
-      {
-        i(1),
-      }
+      "\\cos", {}
     ),
     {condition = in_mathzone}
   ),
   s({trig = "Cos", snippetType = "autosnippet"},
     fmta(
-      "\\arccos(<>)",
-      {
-        i(1),
-      }
+      "\\arccos", {}
     ),
     {condition = in_mathzone}
   ),
   s({trig = "tan", snippetType = "autosnippet"},
     fmta(
-      "\\tan(<>)",
-      {
-        i(1),
-      }
+      "\\tan", {}
     ),
     {condition = in_mathzone}
   ),
   s({trig = "Tan", snippetType = "autosnippet"},
     fmta(
-      "\\arctan(<>)",
-      {
-        i(1),
-      }
+      "\\arctan", {}
     ),
     {condition = in_mathzone}
   ),
