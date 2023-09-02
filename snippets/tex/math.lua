@@ -236,13 +236,13 @@ return {
     ),
     {condition = in_mathzone}
   ),
-  s({trig = "~=", snippetType = "autosnippet"},
+  s({trig = "e~", snippetType = "autosnippet"},
     fmta(
       "\\simeq", {}
     ),
     {condition = in_mathzone}
   ),
-  s({trig = "~~", snippetType = "autosnippet"},
+  s({trig = "2~", snippetType = "autosnippet"},
     fmta(
       "\\approx", {}
     ),
@@ -254,7 +254,7 @@ return {
     ),
     {condition = in_mathzone}
   ),
-  s({trig = "cce", snippetType = "autosnippet"},
+  s({trig = "ecc", snippetType = "autosnippet"},
     fmta(
       "\\subseteq", {}
     ),
@@ -287,6 +287,48 @@ return {
   s({trig = "uu", snippetType = "autosnippet"},
     fmta(
       "\\cup", {}
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "vv", snippetType = "autosnippet"},
+    fmta(
+      "\\vee", {}
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "VV", snippetType = "autosnippet"},
+    fmta(
+      "\\wedge", {}
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "oo", snippetType = "autosnippet"},
+    fmta(
+      "\\circ", {}
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "**", snippetType = "autosnippet"},
+    fmta(
+      "\\cdot", {}
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "xx", snippetType = "autosnippet"},
+    fmta(
+      "\\times", {}
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "||", snippetType = "autosnippet"},
+    fmta(
+      "\\mid", {}
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "tc", snippetType = "autosnippet"},
+    fmta(
+      "\\;\\text{t.c.}\\;", {}
     ),
     {condition = in_mathzone}
   ),
@@ -383,24 +425,6 @@ return {
     ),
     {condition = in_mathzone}
   ),
-  s({trig = "oo", snippetType = "autosnippet"},
-    fmta(
-      "\\circ", {}
-    ),
-    {condition = in_mathzone}
-  ),
-  s({trig = "**", snippetType = "autosnippet"},
-    fmta(
-      "\\cdot", {}
-    ),
-    {condition = in_mathzone}
-  ),
-  s({trig = "xx", snippetType = "autosnippet"},
-    fmta(
-      "\\times", {}
-    ),
-    {condition = in_mathzone}
-  ),
 
   -------------
   -- Simboli --
@@ -455,6 +479,9 @@ return {
     {condition = in_mathzone}
   ),
 
+  --------------------
+  -- "Environments" --
+  --------------------
 
   s({trig = "txt", snippetType = "autosnippet"},
     fmta(
@@ -519,6 +546,22 @@ return {
       {
         i(1, "indice"),
         i(2, "argomento"),
+      }
+    ),
+    {condition = in_mathzone}
+  ),
+
+  ----------------------
+  -- Insiemi Numerici --
+  ----------------------
+
+  s({trig = "BB(%w+)", regTrig = true, hidden = true, snippetType = "autosnippet"},
+    fmta(
+      "\\mathbb{<>}",
+      {
+        f(function (_, snip)
+          return snip.captures[1]
+        end)
       }
     ),
     {condition = in_mathzone}
