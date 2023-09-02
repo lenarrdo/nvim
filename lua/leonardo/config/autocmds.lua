@@ -11,3 +11,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
+
+-- Set wrap on .tex and .txt files
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = {"*.tex", "*.txt"},
+  group = group,
+  command = "setlocal wrap"
+})
