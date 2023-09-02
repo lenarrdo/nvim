@@ -5,6 +5,10 @@ map("n", "<leader>rj", "<cmd>:wa | :sp | term javac % && java % && rm *.class <c
 map("n", "<leader>rc", "<cmd>:wa | :sp | term g++ % && ./a.out && rm *.out <cr>", { desc = "C++" })
 map("n", "<leader>ra", "<cmd>:wa | :sp | term javac % && java -ea % && rm *.class <cr>", { desc = "Java -ea" })
 
+-- Better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
 -- CTRL+Backspace in insert mode.
 map("i", "<C-H>", "<C-W>", { noremap = true }) -- Linux
 -- map("i", "<Esc><BS>", "<C-W>", { noremap = true }) -- Mac
@@ -29,3 +33,15 @@ map("n", "<leader>l", "<cmd>:Lazy<cr>")
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
+-- Telescope
+map("n", "<leader>ff", "<cmd>:Telescope find_files<cr>")
+
+-- Fixa l'ultimo errore
+map("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { noremap = true, silent = true })
+
+-- inkscape-figures
+vim.cmd [[
+  inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+  nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+]]
