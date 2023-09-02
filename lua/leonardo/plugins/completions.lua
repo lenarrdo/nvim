@@ -52,6 +52,8 @@ cmp.setup ({
         if not entry then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
           cmp.confirm()
+        else
+          cmp.confirm()
         end
       else
         fallback()
