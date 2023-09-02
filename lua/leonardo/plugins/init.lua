@@ -17,11 +17,14 @@ local plugins = {
 
   -- Theme
   {
-    "AlexvZyl/nordic.nvim",
+    "navarasu/onedark.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("nordic").load()
+      require("onedark").setup {
+        style = "warmer"
+      }
+      require("onedark").load()
     end
   },
 
@@ -37,11 +40,15 @@ local plugins = {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = {}
+    opts = { disable_filetype = { "tex" } }
   },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
+  },
+  {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
   -- Visual
