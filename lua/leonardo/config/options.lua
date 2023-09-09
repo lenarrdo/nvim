@@ -5,11 +5,11 @@ g.mapleader = " "
 g.maplocalleader = "\\"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
-g.vimtex_general_viewer = "zathura"
+g.vimtex_view_method = "zathura"
 
 o.autowrite = true -- Enable auto write
 o.clipboard = "unnamedplus" -- Sync with system clipboard
-o.colorcolumn = "80" -- Vertical ruler at line 80
+o.colorcolumn = "80" -- Vertical ruler at column 80
 o.completeopt = "menu,menuone,noselect"
 o.conceallevel = 0 -- Hide * markup for bold and italic
 o.confirm = true -- Confirm to save changes before exiting modified buffer
@@ -37,8 +37,11 @@ o.sidescrolloff = 8 -- Columns of context
 o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 o.smartcase = true -- Don't ignore case with capitals
 o.smartindent = true -- Insert indents automatically
+
+-- Spellcheck and dictionaries
 o.spell = true
 o.spelllang = "it,en"
+
 o.splitbelow = true -- Put new windows below current
 o.splitright = true -- Put new windows right of current
 o.tabstop = 2 -- Number of spaces tabs count for

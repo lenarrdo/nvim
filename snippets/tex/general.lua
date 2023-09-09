@@ -1,72 +1,113 @@
+line_begin = function ()
+  local lb = require("luasnip.extras.expand_conditions").line_begin
+  return lb == 1
+end
+local not_in_mathzone = function()
+  return vim.fn['vimtex#syntax#in_mathzone']() == 0
+end
+local NIMandLB = function() -- Not In Mathzone and Line Begin
+  return not_in_mathzone and line_begin
+end
+
 return {
-	-----------------------
-	-- COMODITÀ GENERALI --
-	-----------------------
-	s(
-		{ trig = "bold", dscr = "bold == \text{bf}" },
-		fmt("\\textbf{<>}", {
-			i(1),
-		}, { delimiters = "<>" })
-	),
-	s(
-		{ trig = "img", dscr = "per inserire immagini" },
-		fmta(
+  s({trig = ",b", snippetType = "autosnippet"},
+    fmta(
+      "\\textbf{<>}",
+      {
+        i(1),
+      }
+    ),
+    {condition = not_in_mathzone}
+  ),
+  s({trig = ".i", snippetType = "autosnippet"},
+    fmta(
+      "\\item <>",
+      {
+        i(0),
+      }
+    ),
+    {condition = line_begin}
+  ),
+  s({trig = "\"\"", snippetType = "autosnippet"},
+    fmta(
+      "``<>''",
+      {
+        i(1),
+      }
+    )
+  ),
+  s({trig = ",v", snippetType = "autosnippet"},
+    fmta(
+      "\\verb|<>|",
+      {
+        i(1),
+      }
+    ),
+    {condition = not_in_mathzone}
+  ),
+  s({trig = ",c", snippetType = "autosnippet"},
+    fmta(
 			[[
-        \begin{figure}[H]
-          \centering
-          \includegraphics[width=0.5\textwidth]{<><>}
-        \end{figure}
-        \noindent 
+        \chapter{<>}
+        <>
       ]],
-			{
-				i(1, "./images/"),
-				i(2, "file.jpeg"),
-			}
-		)
-	),
-	s(
-		{ trig = "enum", dscr = "enumerate pulito pulito" },
-		fmta(
+      {
+        i(1),
+        i(0),
+      }
+    ),
+    {condition = NIMandLB}
+  ),
+  s({trig = ",s", snippetType = "autosnippet"},
+    fmta(
 			[[
-        \begin{enumerate}
-          \item <>
-        \end{enumerate}
+        \section{<>}
+        <>
       ]],
-			{
-				i(1),
-			}
-		)
-	),
-	s(
-		{ trig = "itemi", dscr = "itemize pulito pulito" },
-		fmta(
+      {
+        i(1),
+        i(0),
+      }
+    ),
+    {condition = NIMandLB}
+  ),
+  s({trig = ".s", snippetType = "autosnippet"},
+    fmta(
 			[[
-        \begin{itemize}
-          \item <>
-        \end{itemize}
+        \subsection{<>}
+        <>
       ]],
-			{
-				i(1),
-			}
-		)
-	),
-	s(
-		{ trig = "item", dscr = "semplicemente per aggiungere un item" },
-		fmt("\\item <>", {
-			i(1),
-		}, { delimiters = "<>" })
-	),
-	s({ trig = "dots", dscr = "Converte ... in \\dots" }, fmt("\\dots", {})),
-	s(
-		{ trig = "quotes", dscr = "Virgolette con il backtick senza tumore" },
-		fmt("``<>''", {
-			i(1),
-		}, { delimiters = "<>" })
-	),
-	s(
-		{ trig = "verb", dscr = "tipo se devi scrivere una directory" },
-		fmt("\\verb|<>|", {
-			i(1),
-		}, { delimiters = "<>" })
-	),
+      {
+        i(1),
+        i(0),
+      }
+    ),
+    {condition = NIMandLB}
+  ),
+  s({trig = "-s", snippetType = "autosnippet"},
+    fmta(
+			[[
+        \subsubsection{<>}
+        <>
+      ]],
+      {
+        i(1),
+        i(0),
+      }
+    ),
+    {condition = NIMandLB}
+  ),
+  s({trig = ",p", snippetType = "autosnippet"},
+    fmta(
+			[[
+        \paragraph{<>}
+        <>
+      ]],
+      {
+        i(1),
+        i(0),
+      }
+    ),
+    {condition = NIMandLB}
+  ),
 }
