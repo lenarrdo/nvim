@@ -119,13 +119,13 @@ return {
   ),
 
   -- Omicron
-  s({trig = ",o", snippetType = "autosnippet"},
+  s({trig = ",omi", snippetType = "autosnippet"},
     fmta(
       "\\omicron", {}
     ),
     {condition = in_mathzone}
   ),
-  s({trig = ",O", snippetType = "autosnippet"},
+  s({trig = ",OMI", snippetType = "autosnippet"},
     fmta(
       "\\Omicron", {}
     ),
@@ -227,13 +227,13 @@ return {
   ),
 
   -- Omega
-  s({trig = ",o", snippetType = "autosnippet"},
+  s({trig = ",ome", snippetType = "autosnippet"},
     fmta(
       "\\omega", {}
     ),
     {condition = in_mathzone}
   ),
-  s({trig = ",O", snippetType = "autosnippet"},
+  s({trig = ",OME", snippetType = "autosnippet"},
     fmta(
       "\\Omega", {}
     ),
