@@ -1,13 +1,7 @@
-line_begin = function ()
-  local lb = require("luasnip.extras.expand_conditions").line_begin
-  return lb == 1
-end
-local not_in_mathzone = function()
+local in_text = function()
   return vim.fn['vimtex#syntax#in_mathzone']() == 0
 end
-local NIMandLB = function() -- Not In Mathzone and Line Begin
-  return not_in_mathzone and line_begin
-end
+local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
 return {
   s({trig = ",b", snippetType = "autosnippet"},
@@ -17,7 +11,7 @@ return {
         i(1),
       }
     ),
-    {condition = not_in_mathzone}
+    {condition = in_text}
   ),
   s({trig = ".i", snippetType = "autosnippet"},
     fmta(
@@ -26,7 +20,7 @@ return {
         i(0),
       }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
   s({trig = "\"\"", snippetType = "autosnippet"},
     fmta(
@@ -34,7 +28,8 @@ return {
       {
         i(1),
       }
-    )
+    ),
+    {condition = in_text}
   ),
   s({trig = ",v", snippetType = "autosnippet"},
     fmta(
@@ -43,7 +38,7 @@ return {
         i(1),
       }
     ),
-    {condition = not_in_mathzone}
+    {condition = in_text}
   ),
   s({trig = ",c", snippetType = "autosnippet"},
     fmta(
@@ -56,7 +51,7 @@ return {
         i(0),
       }
     ),
-    {condition = NIMandLB}
+    {condition = in_text * line_begin}
   ),
   s({trig = ",s", snippetType = "autosnippet"},
     fmta(
@@ -69,7 +64,7 @@ return {
         i(0),
       }
     ),
-    {condition = NIMandLB}
+    {condition = in_text * line_begin}
   ),
   s({trig = ".s", snippetType = "autosnippet"},
     fmta(
@@ -82,7 +77,7 @@ return {
         i(0),
       }
     ),
-    {condition = NIMandLB}
+    {condition = in_text * line_begin}
   ),
   s({trig = "-s", snippetType = "autosnippet"},
     fmta(
@@ -95,7 +90,7 @@ return {
         i(0),
       }
     ),
-    {condition = NIMandLB}
+    {condition = in_text * line_begin}
   ),
   s({trig = ",p", snippetType = "autosnippet"},
     fmta(
@@ -108,6 +103,6 @@ return {
         i(0),
       }
     ),
-    {condition = NIMandLB}
+    {condition = in_text * line_begin}
   ),
 }
