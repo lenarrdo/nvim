@@ -40,7 +40,7 @@ local plugins = {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = { disable_filetype = { "tex" } }
+    opts = { disable_filetype = { "tex", "text" } }
   },
   {
     "folke/which-key.nvim",
@@ -49,6 +49,9 @@ local plugins = {
   {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+    "lewis6991/gitsigns.nvim"
   },
 
   -- Visual
@@ -98,3 +101,4 @@ require("leonardo.plugins.treesitter")
 require("leonardo.plugins.completions")
 require("leonardo.plugins.alpha-nvim")
 require("leonardo.plugins.lualine")
+require("leonardo.plugins.gitsigns")
