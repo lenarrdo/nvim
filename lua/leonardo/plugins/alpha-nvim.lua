@@ -4,6 +4,16 @@ local headers = {
   nvim = {
     "                                                     ",
     "                                                     ",
+    "                                                     ",
+    "                                                     ",
+    "                                                     ",
+    "                                                     ",
+    "                                                     ",
+    "                                                     ",
+    "                                                     ",
+    "                                                     ",
+    "                                                     ",
+    "                                                     ",
     "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
     "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
     "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
@@ -17,12 +27,12 @@ local dashboard = require "alpha.themes.dashboard"
 dashboard.section.header.val = headers.nvim
 
 dashboard.section.buttons.val = {
-  dashboard.button("SPC f f", "  Find Files"),
-  dashboard.button("SPC f r", "󱔗  Recent Files"),
-  dashboard.button("SPC f t", "󰈭  Find Text"),
-  dashboard.button("SPC f p", "  Find Projects"),
-  dashboard.button("SPC n c", "  Config Files", ":lua=config_files()<cr>"),
-  dashboard.button("SPC q", "  Quit Neovim"),
+  -- dashboard.button("SPC f f", "  Find Files"),
+  -- dashboard.button("SPC f r", "󱔗  Recent Files"),
+  -- dashboard.button("SPC f t", "󰈭  Find Text"),
+  -- dashboard.button("SPC f p", "  Find Projects"),
+  -- dashboard.button("SPC n c", "  Config Files", ":lua=config_files()<cr>"),
+  -- dashboard.button("SPC q", "  Quit Neovim"),
 }
 
 for _, button in pairs(dashboard.section.buttons.val) do
@@ -53,7 +63,7 @@ vim.api.nvim_create_autocmd("User", {
 
 dashboard.section.footer.opts.hl = "AlphaFooter"
 dashboard.section.header.opts.hl = "AlphaHeader"
-dashboard.section.buttons.opts.hl = "AlphaButton"
+-- dashboard.section.buttons.opts.hl = "AlphaButton"
 
 dashboard.opts.opts.noautocmd = false
 alpha.setup(dashboard.opts)
