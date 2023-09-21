@@ -10,7 +10,7 @@ return {
   ---------------------------
 
   s({trig = "mk", snippetType = "autosnippet"},
-    fmta( "$<>$<>",
+    fmta( "\\(<>\\)<>",
       {
         i(1),
         i(0),
@@ -389,6 +389,24 @@ return {
       {
         i(1, "a"),
         i(2, "b"),
+        i(0),
+      }
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "inint", snippetType = "autosnippet"},
+    fmta(
+      "\\int <>",
+      {
+        i(0),
+      }
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "df", snippetType = "autosnippet"},
+    fmta(
+      "\\diff <>",
+      {
         i(0),
       }
     ),
