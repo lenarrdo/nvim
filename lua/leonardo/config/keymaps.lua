@@ -2,7 +2,7 @@ local map = vim.keymap.set
 
 -- Compilazione ed esecuzione.
 map("n", "<leader>rj", "<cmd>:wa | :sp | term javac % && java % && rm *.class <cr>", { desc = "Java" })
-map("n", "<leader>rc", "<cmd>:wa | :sp | term g++ % && ./a.out && rm *.out <cr>", { desc = "C++" })
+map("n", "<leader>rc", "<cmd>:wa | :sp | term gcc % -o a.out && ./a.out && rm *.out <cr>", { desc = "C++" })
 map("n", "<leader>ra", "<cmd>:wa | :sp | term javac % && java -ea % && rm *.class <cr>", { desc = "Java -ea" })
 
 -- Better up/down
@@ -39,9 +39,3 @@ map("n", "<leader>ff", "<cmd>:Telescope find_files<cr>")
 
 -- Fixa l'ultimo errore
 map("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { noremap = true, silent = true })
-
--- inkscape-figures
-vim.cmd [[
-  inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-  nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
-]]
