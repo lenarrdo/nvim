@@ -19,9 +19,25 @@ return {
     ),
     {condition = line_begin}
   ),
-	s({ trig = "fig", snippetType = "autosnippet" },
-		fmta(
-			[[
+  s({ trig = "fig", snippetType = "autosnippet" },
+    fmta(
+      [[
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.5\textwidth]{./figures/<>}
+        \end{figure}
+        \noindent <>
+      ]],
+      {
+        i(1),
+        i(0),
+      }
+    ),
+    {condition = line_begin}
+  ),
+  s({ trig = "dfig", snippetType = "autosnippet" },
+    fmta(
+      [[
         \begin{figure}[H]
           \centering
           \includegraphics[width=0.5\textwidth]{./figures/<>}
@@ -30,17 +46,18 @@ return {
         \end{figure}
         \noindent <>
       ]],
-			{
-				i(1, "file.jpeg"),
+      {
+        i(1, "file.jpeg"),
         i(2),
         i(3),
         i(0),
-			}
-		)
-	),
+      }
+    ),
+    {condition = line_begin}
+  ),
   s({trig = "cent", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
        \begin{center}
          <>
        \end{center}
@@ -85,7 +102,7 @@ return {
   ),
   s({trig = "mini", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
        \begin{minipage}{0.5\textwidth}
          <>
        \end{minipage}
@@ -100,7 +117,7 @@ return {
   ),
   s({trig = "pmat", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
         \begin{pmatrix}
           <>
         \end{pmatrix}
@@ -115,7 +132,7 @@ return {
   ),
   s({trig = "equ", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
         \begin{equation}
           <>
         \end{equation}
@@ -130,7 +147,7 @@ return {
   ),
   s({trig = "eqsp", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
       \begin{equation*}
         \begin{split}
           <>
@@ -147,7 +164,7 @@ return {
   ),
   s({trig = "cases", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
        \begin{cases}
         <> & \text{se } <> \\
         <>

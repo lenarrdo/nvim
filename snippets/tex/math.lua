@@ -569,13 +569,24 @@ return {
     {condition = in_mathzone}
   ),
 
-  ----------------------
-  -- Insiemi Numerici --
-  ----------------------
+  -----------
+  -- Fonts --
+  -----------
 
   s({trig = "BB(%w+)", regTrig = true, hidden = true, snippetType = "autosnippet"},
     fmta(
       "\\mathbb{<>}",
+      {
+        f(function (_, snip)
+          return snip.captures[1]
+        end)
+      }
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "CAL(%w+)", regTrig = true, hidden = true, snippetType = "autosnippet"},
+    fmta(
+      "\\mathcal{<>}",
       {
         f(function (_, snip)
           return snip.captures[1]

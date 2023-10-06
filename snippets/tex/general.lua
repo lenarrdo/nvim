@@ -15,10 +15,7 @@ return {
   ),
   s({trig = ".i", snippetType = "autosnippet"},
     fmta(
-      "\\item <>",
-      {
-        i(0),
-      }
+      "\\item", {}
     ),
     {condition = in_text * line_begin}
   ),
@@ -42,8 +39,9 @@ return {
   ),
   s({trig = ",c", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
         \chapter{<>}
+        \thispagestyle{empty}
         <>
       ]],
       {
@@ -55,7 +53,7 @@ return {
   ),
   s({trig = ",s", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
         \section{<>}
         <>
       ]],
@@ -68,7 +66,7 @@ return {
   ),
   s({trig = ".s", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
         \subsection{<>}
         <>
       ]],
@@ -81,7 +79,7 @@ return {
   ),
   s({trig = "-s", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
         \subsubsection{<>}
         <>
       ]],
@@ -94,7 +92,7 @@ return {
   ),
   s({trig = ",p", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
         \paragraph{<>}
         <>
       ]],
