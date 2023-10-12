@@ -39,3 +39,7 @@ map("n", "<leader>ff", "<cmd>:Telescope find_files<cr>")
 
 -- Fixa l'ultimo errore
 map("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { noremap = true, silent = true })
+
+-- Buffers
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
