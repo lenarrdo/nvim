@@ -24,7 +24,7 @@ return {
       [[
         \begin{figure}[H]
           \centering
-          \includegraphics[width=0.5\textwidth]{./figures/<>}
+          \includegraphics[width=0.5\textwidth]{<>.drawio}
         \end{figure}
         \noindent <>
       ]],

@@ -117,7 +117,7 @@ return {
 
   s({trig = "lr|", snippetType = "autosnippet"},
     fmta(
-      "\\left|<>\\right|",
+      "\\left|{<>}\\right|",
       {
         i(1),
       }
@@ -126,7 +126,7 @@ return {
   ),
   s({trig = "lr(", snippetType = "autosnippet"},
     fmta(
-      "\\left(<>\\right)",
+      "\\left({<>}\\right)",
       {
         i(1),
       }
@@ -135,7 +135,7 @@ return {
   ),
   s({trig = "lr[", snippetType = "autosnippet"},
     fmta(
-      "\\left[<>\\right]",
+      "\\left[{<>}\\right]",
       {
         i(1),
       }
@@ -144,7 +144,7 @@ return {
   ),
   s({trig = "lr{", snippetType = "autosnippet"},
     fmta(
-      "\\left\\{<>\\right\\}",
+      "\\left\\{{<>}\\right\\}",
       {
         i(1),
       }
@@ -296,7 +296,7 @@ return {
     ),
     {condition = in_mathzone}
   ),
-  s({trig = "VV", snippetType = "autosnippet"},
+  s({trig = "ww", snippetType = "autosnippet"},
     fmta(
       "\\wedge", {}
     ),
@@ -328,7 +328,7 @@ return {
   ),
   s({trig = "tc", snippetType = "autosnippet"},
     fmta(
-      "\\;\\text{t.c.}\\;", {}
+      "\\tc", {}
     ),
     {condition = in_mathzone}
   ),
@@ -394,7 +394,7 @@ return {
     ),
     {condition = in_mathzone}
   ),
-  s({trig = "inint", snippetType = "autosnippet"},
+  s({trig = "indint", snippetType = "autosnippet"},
     fmta(
       "\\int <>",
       {
@@ -564,6 +564,16 @@ return {
       {
         i(1, "indice"),
         i(2, "argomento"),
+      }
+    ),
+    {condition = in_mathzone}
+  ),
+  s({trig = "hat", snippetType = "autosnippet"},
+    fmta(
+      "\\hat{<>} <>",
+      {
+        i(1),
+        i(0),
       }
     ),
     {condition = in_mathzone}
