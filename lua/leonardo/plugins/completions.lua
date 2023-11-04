@@ -11,7 +11,7 @@ luasnip.config.set_config({
   enable_autosnippets = true,
 
   -- Load custom snippets
-  require("luasnip.loaders.from_lua").lazy_load({ paths = "../../../snippets/" })
+  require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
 })
 
 -- Expand and cycle through a snippet with Tab.

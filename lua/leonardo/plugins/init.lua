@@ -65,7 +65,12 @@ local plugins = {
   -- Visual
   "nvim-tree/nvim-web-devicons",
   "nvim-treesitter/nvim-treesitter",
-  "lukas-reineke/indent-blankline.nvim",
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("ibl").setup()
+    end
+  },
   {
     "goolord/alpha-nvim",
     lazy = true,
