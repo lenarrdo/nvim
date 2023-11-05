@@ -6,7 +6,7 @@ map("n", "<leader>rc", "<cmd>:wa | :sp | term gcc % -o a.out && ./a.out && rm *.
 map("n", "<leader>ra", "<cmd>:wa | :sp | term javac % && java -ea % && rm *.class <cr>", { desc = "Java -ea" })
 
 -- NvimTree
-map("n", "<C-O>", "<cmd>:NvimTreeToggle<cr>")
+map("n", "<leader>t", "<cmd>:NvimTreeToggle<cr>")
 
 -- Better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -46,3 +46,8 @@ map("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { noremap = true, silent = true }
 -- Buffers
 map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+
+-- ToggleTerm
+map("n", "<C-o>", "<cmd>:ToggleTerm<cr>")
+map("t", "<C-o>", [[<C-\><C-n>]])
+map("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})

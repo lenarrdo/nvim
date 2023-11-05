@@ -61,6 +61,11 @@ local plugins = {
       require("bufferline").setup{}
     end
   },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = true
+  },
 
   -- Visual
   "nvim-tree/nvim-web-devicons",
@@ -115,3 +120,4 @@ require("leonardo.plugins.completions")
 require("leonardo.plugins.alpha-nvim")
 require("leonardo.plugins.lualine")
 require("leonardo.plugins.gitsigns")
+require("leonardo.plugins.toggleterm")
