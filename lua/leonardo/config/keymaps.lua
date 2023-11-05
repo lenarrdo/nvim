@@ -5,6 +5,9 @@ map("n", "<leader>rj", "<cmd>:wa | :sp | term javac % && java % && rm *.class <c
 map("n", "<leader>rc", "<cmd>:wa | :sp | term gcc % -o a.out && ./a.out && rm *.out <cr>", { desc = "C++" })
 map("n", "<leader>ra", "<cmd>:wa | :sp | term javac % && java -ea % && rm *.class <cr>", { desc = "Java -ea" })
 
+-- NvimTree
+map("n", "<C-O>", "<cmd>:NvimTreeToggle<cr>")
+
 -- Better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
