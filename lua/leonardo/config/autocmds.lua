@@ -1,20 +1,35 @@
+local autocmd = vim.api.nvim_create_autocmd
+
 -- Disable new line comment
-vim.api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
   callback = function()
     vim.opt.formatoptions:remove({ "c", "r", "o" })
   end,
 })
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
+autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
--- Set wrap on .tex and .txt files
-vim.api.nvim_create_autocmd("BufEnter", {
+-- Forget current snippet when entering normal mode
+autocmd("ModeChanged", {
+  pattern = '*',
+  callback = function()
+    if ((vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n") or vim.v.event.old_mode == "i")
+      and require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+      and not require("luasnip").session.jump_active then
+      while require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()] ~= nil do
+        require("luasnip").unlink_current()
+      end
+    end
+  end
+})
+
+-- Set wrap and disable color column on .tex and .txt files
+autocmd("BufEnter", {
   pattern = {"*.tex", "*.txt"},
-  group = group,
-  command = "setlocal wrap"
+  command = "setlocal colorcolumn=0 wrap"
 })
