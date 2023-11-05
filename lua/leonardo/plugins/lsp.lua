@@ -11,7 +11,7 @@ require("lspconfig").lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim", "fmta", "i", "s", "f" }
+        globals = { "vim", "fmta", "i", "s", "f", "t", "rep" }
       }
     }
   }
