@@ -1,39 +1,30 @@
+local line_begin = require("luasnip.extras.expand_conditions").line_begin
 local in_text = function()
   return vim.fn['vimtex#syntax#in_mathzone']() == 0
 end
-local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
 return {
   s({trig = ",b", snippetType = "autosnippet"},
     fmta(
       "\\textbf{<>}",
-      {
-        i(1),
-      }
+      { i(1) }
     ),
     {condition = in_text}
   ),
-  s({trig = ".i", snippetType = "autosnippet"},
-    fmta(
-      "\\item", {}
-    ),
-    {condition = in_text * line_begin}
+  s({trig = ".i", snippetType="autosnippet"},
+    {t("\\item ")}, {condition = in_text * line_begin}
   ),
   s({trig = "\"\"", snippetType = "autosnippet"},
     fmta(
-      "``<>''",
-      {
-        i(1),
-      }
+      "``<>'' <>",
+      { i(1), i(0) }
     ),
     {condition = in_text}
   ),
   s({trig = ",v", snippetType = "autosnippet"},
     fmta(
-      "\\verb|<>|",
-      {
-        i(1),
-      }
+      "\\verb|<>| <>",
+      { i(1), i(0) }
     ),
     {condition = in_text}
   ),
@@ -42,12 +33,10 @@ return {
       [[
         \chapter{<>}
         \thispagestyle{empty}
+
         <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(1), i(0) }
     ),
     {condition = in_text * line_begin}
   ),
@@ -55,12 +44,10 @@ return {
     fmta(
       [[
         \section{<>}
+
         <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(1), i(0) }
     ),
     {condition = in_text * line_begin}
   ),
@@ -68,12 +55,10 @@ return {
     fmta(
       [[
         \subsection{<>}
+
         <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(1), i(0) }
     ),
     {condition = in_text * line_begin}
   ),
@@ -81,12 +66,10 @@ return {
     fmta(
       [[
         \subsubsection{<>}
+
         <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(1), i(0) }
     ),
     {condition = in_text * line_begin}
   ),
@@ -94,12 +77,10 @@ return {
     fmta(
       [[
         \paragraph{<>}
+
         <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(1), i(0) }
     ),
     {condition = in_text * line_begin}
   ),

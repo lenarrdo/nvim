@@ -1,10 +1,11 @@
 return {
   s({ trig = "so" },
     fmta(
-      "System.out.print(<>);",
-      {
-        i(1),
-      }
+    [[
+      System.out.print(<>);
+      <>
+    ]],
+      { i(1), i(0) }
     )
   ),
   s({ trig = "main" },
@@ -14,9 +15,7 @@ return {
         <>
       }
     ]],
-      {
-        i(0),
-      }
+      { i(0) }
     )
   ),
 }

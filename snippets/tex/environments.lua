@@ -1,25 +1,21 @@
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
-local NIMandLB = function() -- Not In Mathzone and Line Begin
-  return vim.fn['vimtex#syntax#in_mathzone']() == 0 and line_begin
+local in_text = function()
+  return vim.fn['vimtex#syntax#in_mathzone']() == 0
 end
 
 return {
   s({trig = "env", snippetType = "autosnippet"},
     fmta(
-			[[
+      [[
        \begin{<>}
          <>
        \end{<>}
       ]],
-      {
-        i(1),
-        i(0),
-        rep(1),
-      }
+      { i(1), i(0), rep(1) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
-  s({ trig = "fig", snippetType = "autosnippet" },
+  s({trig = "fig", snippetType = "autosnippet"},
     fmta(
       [[
         \begin{figure}[H]
@@ -28,32 +24,24 @@ return {
         \end{figure}
         \noindent <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(1), i(0) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
-  s({ trig = "dfig", snippetType = "autosnippet" },
+  s({trig = "dfig", snippetType = "autosnippet"},
     fmta(
       [[
         \begin{figure}[H]
           \centering
-          \includegraphics[width=0.5\textwidth]{./figures/<>}
+          \includegraphics[width=0.5\textwidth]{<>.drawio}
           \caption{<>}
-          \label{<>}
+          \label{fig:<>}
         \end{figure}
         \noindent <>
       ]],
-      {
-        i(1, "file.jpeg"),
-        i(2),
-        i(3),
-        i(0),
-      }
+      { i(1), i(2), rep(1), i(0) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
   s({trig = "cent", snippetType = "autosnippet"},
     fmta(
@@ -61,14 +49,10 @@ return {
        \begin{center}
          <>
        \end{center}
-       <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(0) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
   s({trig = ",e", snippetType = "autosnippet"},
     fmta(
@@ -76,14 +60,10 @@ return {
       \begin{enumerate}
         \item <>
       \end{enumerate}
-      <>
     ]],
-    {
-      i(1),
-      i(0),
-    }
+    { i(0) }
     ),
-    {condition = NIMandLB}
+    {condition = in_text * line_begin}
   ),
   s({trig = ",i", snippetType = "autosnippet"},
     fmta(
@@ -91,14 +71,10 @@ return {
       \begin{itemize}
         \item <>
       \end{itemize}
-      <>
     ]],
-    {
-      i(1),
-      i(0),
-    }
+    { i(0) }
     ),
-    {condition = NIMandLB}
+    {condition = in_text * line_begin}
   ),
   s({trig = "mini", snippetType = "autosnippet"},
     fmta(
@@ -106,14 +82,10 @@ return {
        \begin{minipage}{0.5\textwidth}
          <>
        \end{minipage}
-       <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(0) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
   s({trig = "pmat", snippetType = "autosnippet"},
     fmta(
@@ -121,14 +93,10 @@ return {
         \begin{pmatrix}
           <>
         \end{pmatrix}
-       <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(0) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
   s({trig = "equ", snippetType = "autosnippet"},
     fmta(
@@ -136,14 +104,10 @@ return {
         \begin{equation}
           <>
         \end{equation}
-       <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(0) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
   s({trig = "eqsp", snippetType = "autosnippet"},
     fmta(
@@ -153,14 +117,10 @@ return {
           <>
         \end{split}
       \end{equation*}
-       <>
       ]],
-      {
-        i(1),
-        i(0),
-      }
+      { i(0) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
   s({trig = "cases", snippetType = "autosnippet"},
     fmta(
@@ -169,15 +129,9 @@ return {
         <> & \text{se } <> \\
         <>
        \end{cases}
-       <>
       ]],
-      {
-        i(1),
-        i(2),
-        i(3),
-        i(0),
-      }
+      { i(1), i(2), i(0) }
     ),
-    {condition = line_begin}
+    {condition = in_text * line_begin}
   ),
 }
