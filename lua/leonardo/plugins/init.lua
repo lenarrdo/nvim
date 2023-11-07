@@ -43,10 +43,6 @@ local plugins = {
     opts = { disable_filetype = { "tex", "text" } }
   },
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-  },
-  {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
@@ -70,12 +66,6 @@ local plugins = {
   -- Visual
   "nvim-tree/nvim-web-devicons",
   "nvim-treesitter/nvim-treesitter",
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("ibl").setup()
-    end
-  },
   {
     "goolord/alpha-nvim",
     lazy = true,
