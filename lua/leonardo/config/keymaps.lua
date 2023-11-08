@@ -1,10 +1,5 @@
 local map = vim.keymap.set
 
--- Compilazione ed esecuzione.
-map("n", "<leader>rj", "<cmd>:wa | :sp | term javac % && java % && rm *.class <cr>", { desc = "Java" })
-map("n", "<leader>rc", "<cmd>:wa | :sp | term gcc % -o a.out && ./a.out && rm *.out <cr>", { desc = "C++" })
-map("n", "<leader>ra", "<cmd>:wa | :sp | term javac % && java -ea % && rm *.class <cr>", { desc = "Java -ea" })
-
 -- NvimTree
 map("n", "<leader>t", "<cmd>:NvimTreeToggle<cr>")
 
@@ -12,13 +7,14 @@ map("n", "<leader>t", "<cmd>:NvimTreeToggle<cr>")
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
--- CTRL+Backspace in insert mode.
-map("i", "<C-H>", "<C-W>", { noremap = true }) -- Linux
--- map("i", "<Esc><BS>", "<C-W>", { noremap = true }) -- Mac
-
--- Possibilità di spostare testo evidenziato con K e J
+-- Indentazione fiera
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
+map("v", "<", "<gv", { noremap = true })
+map("v", ">", ">gv", { noremap = true })
+
+-- CTRL+Backspace in insert mode.
+map("i", "<C-H>", "<C-W>", { noremap = true })
 
 -- Copia senza modificare il registro
 map("x", "<leader>p", "\"_dP")
@@ -46,6 +42,8 @@ map("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { noremap = true, silent = true }
 -- Buffers
 map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+map("n", "<C-h>", "<cmd>BufferLineMovePrev<cr>", { desc = "Prev buffer" })
+map("n", "<C-l>", "<cmd>BufferLineMoveNext<cr>", { desc = "Next buffer" })
 
 -- ToggleTerm
 map("n", "<C-o>", "<cmd>:ToggleTerm<cr>")

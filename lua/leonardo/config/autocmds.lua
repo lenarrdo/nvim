@@ -33,3 +33,18 @@ autocmd("BufEnter", {
   pattern = {"*.tex", "*.txt"},
   command = "setlocal colorcolumn=0 wrap"
 })
+
+-- Compilazione ed esecuzione
+autocmd("BufEnter", {
+  pattern = {"*.java"},
+  callback = function()
+    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :sp | term javac % && java % && rm *.class <cr>")
+  end
+})
+
+autocmd("BufEnter", {
+  pattern = {"*.c"},
+  callback = function()
+    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :sp | term gcc % -o a.out && ./a.out && rm *.out <cr>")
+  end
+})
