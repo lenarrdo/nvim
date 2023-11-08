@@ -29,7 +29,6 @@ local plugins = {
   },
 
   -- Utility
-  "nvim-tree/nvim-tree.lua",
   "lervag/vimtex",
   {
     "numToStr/Comment.nvim",
@@ -43,16 +42,16 @@ local plugins = {
     opts = { disable_filetype = { "tex", "text" } }
   },
   {
-    'nvim-telescope/telescope.nvim', branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    "nvim-telescope/telescope.nvim", branch = "0.1.x",
+    dependencies = { "nvim-lua/plenary.nvim" }
   },
   {
     "lewis6991/gitsigns.nvim"
   },
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("bufferline").setup{}
     end
@@ -75,7 +74,7 @@ local plugins = {
   -- LSP && Snippets
   {
     "VonHeikemen/lsp-zero.nvim",
-    branch = 'v2.x',
+    branch = "v2.x",
     dependencies = {
       -- LSP Support
       {"neovim/nvim-lspconfig"},
@@ -104,7 +103,6 @@ require("lazy").setup(plugins)
 
 -- Config
 require("leonardo.plugins.lsp")
-require("leonardo.plugins.nvim-tree")
 require("leonardo.plugins.treesitter")
 require("leonardo.plugins.completions")
 require("leonardo.plugins.alpha-nvim")

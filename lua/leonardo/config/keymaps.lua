@@ -1,8 +1,5 @@
 local map = vim.keymap.set
 
--- NvimTree
-map("n", "<leader>t", "<cmd>:NvimTreeToggle<cr>")
-
 -- Better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
