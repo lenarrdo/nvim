@@ -2,8 +2,7 @@ return {
   s({ trig = "so" },
     fmta(
     [[
-      System.out.print(<>);
-      <>
+      System.out.print(<>);<>
     ]],
       { i(1), i(0) }
     )

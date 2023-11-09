@@ -6,24 +6,24 @@ end
 return {
   s({trig = ",b", snippetType = "autosnippet"},
     fmta(
-      "\\textbf{<>}",
-      { i(1) }
+      "\\textbf{<>}<>",
+      { i(1), i(0) }
     ),
     {condition = in_text}
   ),
   s({trig = ".i", snippetType="autosnippet"},
-    {t("\\item ")}, {condition = in_text * line_begin}
+    {t("\\item")}, {condition = in_text * line_begin}
   ),
   s({trig = "\"\"", snippetType = "autosnippet"},
     fmta(
-      "``<>'' <>",
+      "``<>''<>",
       { i(1), i(0) }
     ),
     {condition = in_text}
   ),
   s({trig = ",v", snippetType = "autosnippet"},
     fmta(
-      "\\verb|<>| <>",
+      "\\verb|<>|<>",
       { i(1), i(0) }
     ),
     {condition = in_text}
@@ -32,9 +32,7 @@ return {
     fmta(
       [[
         \chapter{<>}
-        \thispagestyle{empty}
-
-        <>
+        \thispagestyle{empty}<>
       ]],
       { i(1), i(0) }
     ),
@@ -43,9 +41,7 @@ return {
   s({trig = ",s", snippetType = "autosnippet"},
     fmta(
       [[
-        \section{<>}
-
-        <>
+        \section{<>}<>
       ]],
       { i(1), i(0) }
     ),
@@ -54,9 +50,7 @@ return {
   s({trig = ".s", snippetType = "autosnippet"},
     fmta(
       [[
-        \subsection{<>}
-
-        <>
+        \subsection{<>}<>
       ]],
       { i(1), i(0) }
     ),
@@ -65,9 +59,7 @@ return {
   s({trig = "-s", snippetType = "autosnippet"},
     fmta(
       [[
-        \subsubsection{<>}
-
-        <>
+        \subsubsection{<>}<>
       ]],
       { i(1), i(0) }
     ),
@@ -76,9 +68,7 @@ return {
   s({trig = ",p", snippetType = "autosnippet"},
     fmta(
       [[
-        \paragraph{<>}
-
-        <>
+        \paragraph{<>}<>
       ]],
       { i(1), i(0) }
     ),

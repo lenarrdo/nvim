@@ -10,7 +10,7 @@ return {
   -- inline/display math mode
   s({trig = "mk", snippetType = "autosnippet"},
     fmta(
-      "\\(<>\\) <>",
+      "\\(<>\\)<>",
       { i(1), i(0) }
     ),
     { condition = in_text}
@@ -30,56 +30,58 @@ return {
   -- frazioni, pedici, apici
   s({trig = "ff", snippetType = "autosnippet"},
     fmta(
-      "\\frac{<>}{<>} <>",
+      "\\frac{<>}{<>}<>",
       { i(1, "num"), i(2, "den"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "([%w+%)%]%}])_", regTrig = true, wordTrig = false, snippetType="autosnippet"},
     fmta(
-      "<>_{<>} <>",
+      "<>_{<>}<>",
       { f( function(_, snip) return snip.captures[1] end ), i(1), i(0) }
-    )
+    ),
+    {condition = in_mathzone}
   ),
   s({trig = "([%w+%)%]%}])^", regTrig = true, wordTrig = false, snippetType="autosnippet"},
     fmta(
-      "<>^{<>} <>",
+      "<>^{<>}<>",
       { f( function(_, snip) return snip.captures[1] end ), i(1), i(0) }
-    )
+    ),
+    {condition = in_mathzone}
   ),
 
   -- parentesi e moduli
   s({trig = "lrm", snippetType = "autosnippet"},
     fmta(
-      "\\left|{<>}\\right| <>",
+      "\\left|{<>}\\right|<>",
       { i(1), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "lrt", snippetType = "autosnippet"},
     fmta(
-      "\\left({<>}\\right) <>",
+      "\\left({<>}\\right)<>",
       { i(1), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "lrq", snippetType = "autosnippet"},
     fmta(
-      "\\left[{<>}\\right] <>",
+      "\\left[{<>}\\right]<>",
       { i(1), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "lrg", snippetType = "autosnippet"},
     fmta(
-      "\\left\\{{<>}\\right\\} <>",
+      "\\left\\{{<>}\\right\\}<>",
       { i(1), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "lra", snippetType = "autosnippet"},
     fmta(
-      "\\langle{<>}\\rangle <>",
+      "\\langle{<>}\\rangle<>",
       { i(1), i(0) }
     ),
     {condition = in_mathzone}
@@ -87,144 +89,144 @@ return {
 
   -- funzioni goniometriche
   s({trig = "sin", snippetType="autosnippet"},
-    {t("\\sin ")}, {condition = in_mathzone}
+    {t("\\sin")}, {condition = in_mathzone}
   ),
   s({trig = "Sin", snippetType="autosnippet"},
-    {t("\\arcsin ")}, {condition = in_mathzone}
+    {t("\\arcsin")}, {condition = in_mathzone}
   ),
   s({trig = "cos", snippetType="autosnippet"},
-    {t("\\cos ")}, {condition = in_mathzone}
+    {t("\\cos")}, {condition = in_mathzone}
   ),
   s({trig = "Cos", snippetType="autosnippet"},
-    {t("\\arccos ")}, {condition = in_mathzone}
+    {t("\\arccos")}, {condition = in_mathzone}
   ),
   s({trig = "tan", snippetType="autosnippet"},
-    {t("\\tan ")}, {condition = in_mathzone}
+    {t("\\tan")}, {condition = in_mathzone}
   ),
   s({trig = "Tan", snippetType="autosnippet"},
-    {t("\\arctan ")}, {condition = in_mathzone}
+    {t("\\arctan")}, {condition = in_mathzone}
   ),
 
   -- operatori binari
   s({trig = "ge", snippetType="autosnippet"},
-    {t("\\ge ")}, {condition = in_mathzone}
+    {t("\\ge")}, {condition = in_mathzone}
   ),
   s({trig = "le", snippetType="autosnippet"},
-    {t("\\le ")}, {condition = in_mathzone}
+    {t("\\le")}, {condition = in_mathzone}
   ),
   s({trig = "ne", snippetType="autosnippet"},
-    {t("\\neq ")}, {condition = in_mathzone}
+    {t("\\neq")}, {condition = in_mathzone}
   ),
   s({trig = "equiv", snippetType="autosnippet"},
-    {t("\\equiv ")}, {condition = in_mathzone}
+    {t("\\equiv")}, {condition = in_mathzone}
   ),
   s({trig = "sim", snippetType="autosnippet"},
-    {t("\\sim ")}, {condition = in_mathzone}
+    {t("\\sim")}, {condition = in_mathzone}
   ),
   s({trig = "esim", snippetType="autosnippet"},
-    {t("\\simeq ")}, {condition = in_mathzone}
+    {t("\\simeq")}, {condition = in_mathzone}
   ),
   s({trig = "app", snippetType="autosnippet"},
-    {t("\\approx ")}, {condition = in_mathzone}
+    {t("\\approx")}, {condition = in_mathzone}
   ),
   s({trig = "cc", snippetType="autosnippet"},
-    {t("\\subset ")}, {condition = in_mathzone}
+    {t("\\subset")}, {condition = in_mathzone}
   ),
   s({trig = "ecc", snippetType="autosnippet"},
-    {t("\\subseteq ")}, {condition = in_mathzone}
+    {t("\\subseteq")}, {condition = in_mathzone}
   ),
   s({trig = "inn", snippetType="autosnippet"},
-    {t("\\in ")}, {condition = in_mathzone}
+    {t("\\in")}, {condition = in_mathzone}
   ),
   s({trig = "nin", snippetType="autosnippet"},
-    {t("\\notin ")}, {condition = in_mathzone}
+    {t("\\notin")}, {condition = in_mathzone}
   ),
   s({trig = "nni", snippetType="autosnippet"},
-    {t("\\ni ")}, {condition = in_mathzone}
+    {t("\\ni")}, {condition = in_mathzone}
   ),
   s({trig = "nn", snippetType="autosnippet"},
-    {t("\\cap ")}, {condition = in_mathzone}
+    {t("\\cap")}, {condition = in_mathzone}
   ),
   s({trig = "uu", snippetType="autosnippet"},
-    {t("\\cup ")}, {condition = in_mathzone}
+    {t("\\cup")}, {condition = in_mathzone}
   ),
   s({trig = "vv", snippetType="autosnippet"},
-    {t("\\vee ")}, {condition = in_mathzone}
+    {t("\\vee")}, {condition = in_mathzone}
   ),
   s({trig = "ww", snippetType="autosnippet"},
-    {t("\\wedge ")}, {condition = in_mathzone}
+    {t("\\wedge")}, {condition = in_mathzone}
   ),
   s({trig = "oo", snippetType="autosnippet"},
-    {t("\\circ ")}, {condition = in_mathzone}
+    {t("\\circ")}, {condition = in_mathzone}
   ),
   s({trig = "**", snippetType="autosnippet"},
-    {t("\\cdot ")}, {condition = in_mathzone}
+    {t("\\cdot")}, {condition = in_mathzone}
   ),
   s({trig = "xx", snippetType="autosnippet"},
-    {t("\\times ")}, {condition = in_mathzone}
+    {t("\\times")}, {condition = in_mathzone}
   ),
   s({trig = "||", snippetType="autosnippet"},
-    {t("\\mid ")}, {condition = in_mathzone}
+    {t("\\mid")}, {condition = in_mathzone}
   ),
   s({trig = "tc", snippetType="autosnippet"},
-    {t("\\tc ")}, {condition = in_mathzone}
+    {t("\\tc")}, {condition = in_mathzone}
   ),
 
   -- frecce
   s({trig = "la", snippetType="autosnippet"},
-    {t("\\gets ")}, {condition = in_mathzone}
+    {t("\\gets")}, {condition = in_mathzone}
   ),
   s({trig = "ra", snippetType="autosnippet"},
-    {t("\\to ")}, {condition = in_mathzone}
+    {t("\\to")}, {condition = in_mathzone}
   ),
   s({trig = "imp", snippetType="autosnippet"},
-    {t("\\implies ")}, {condition = in_mathzone}
+    {t("\\implies")}, {condition = in_mathzone}
   ),
   s({trig = "impby", snippetType="autosnippet"},
-    {t("\\impliedby ")}, {condition = in_mathzone}
+    {t("\\impliedby")}, {condition = in_mathzone}
   ),
   s({trig = "iff", snippetType="autosnippet"},
-    {t("\\iff ")}, {condition = in_mathzone}
+    {t("\\iff")}, {condition = in_mathzone}
   ),
 
   -- limiti, integrali, logaritmi...
   s({trig = "lim", snippetType = "autosnippet"},
     fmta(
-      "\\lim_{<>\\to <>} <>",
+      "\\lim_{<>\\to <>}<>",
       { i(1, "n"), i(2, "+\\infty"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "int", snippetType = "autosnippet"},
     fmta(
-      "\\int_{<>}^{<>} <>",
+      "\\int_{<>}^{<>}<>",
       { i(1, "a"), i(2, "b"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "indint", snippetType="autosnippet"},
-    {t("\\int ")}, {condition = in_mathzone}
+    {t("\\int")}, {condition = in_mathzone}
   ),
   s({trig = "df", snippetType="autosnippet"},
-    {t("\\diff ")}, {condition = in_mathzone}
+    {t("\\diff")}, {condition = in_mathzone}
   ),
   s({trig = "sum", snippetType = "autosnippet"},
     fmta(
-      "\\sum_{<>=<>}^{<>} <>",
+      "\\sum_{<>=<>}^{<>}<>",
       { i(1, "i"), i(2, "0"), i(3, "+\\infty"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "log", snippetType = "autosnippet"},
     fmta(
-      "\\log_{<>}(<>) <>",
+      "\\log_{<>}(<>)<>",
       { i(1), i(2), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "ln", snippetType = "autosnippet"},
     fmta(
-      "\\ln(<>) <>",
+      "\\ln(<>)<>",
       { i(1), i(0) }
     ),
     {condition = in_mathzone}
@@ -259,56 +261,56 @@ return {
   -- "environments"
   s({trig = "txt", snippetType = "autosnippet"},
     fmta(
-      "\\text{<>} <>",
+      "\\text{<>}<>",
       { i(1), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "ubra", snippetType = "autosnippet"},
     fmta(
-      "\\underbrace{<>}_{<>} <>",
+      "\\underbrace{<>}_{<>}<>",
       { i(1, "contenuto"), i(2, "sotto"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "obra", snippetType = "autosnippet"},
     fmta(
-      "\\overbrace{<>}_{<>} <>",
+      "\\overbrace{<>}_{<>}<>",
       { i(1, "contenuto"), i(2, "sopra"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "oli", snippetType = "autosnippet"},
     fmta(
-      "\\overline{<>} <>",
+      "\\overline{<>}<>",
       { i(1, "x"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "uset", snippetType = "autosnippet"},
     fmta(
-      "\\underset{<>}{<>} <>",
+      "\\underset{<>}{<>}<>",
       { i(1, "sotto"), i(2, "sopra"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "sq", snippetType = "autosnippet"},
     fmta(
-      "\\sqrt{<>} <>",
+      "\\sqrt{<>}<>",
       { i(1, "x"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "rt", snippetType = "autosnippet"},
     fmta(
-      "\\sqrt[<>]{<>} <>",
+      "\\sqrt[<>]{<>}<>",
       { i(1, "indice"), i(2, "argomento"), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "hat", snippetType = "autosnippet"},
     fmta(
-      "\\hat{<>} <>",
+      "\\hat{<>}<>",
       { i(1), i(0) }
     ),
     {condition = in_mathzone}
@@ -317,14 +319,14 @@ return {
   -- fonts
   s({trig = "BB(%w+)", regTrig = true, hidden = true, snippetType = "autosnippet"},
     fmta(
-      "\\mathbb{<>} <>",
+      "\\mathbb{<>}<>",
       { f( function (_, snip) return snip.captures[1] end ), i(0) }
     ),
     {condition = in_mathzone}
   ),
   s({trig = "CAL(%w+)", regTrig = true, hidden = true, snippetType = "autosnippet"},
     fmta(
-      "\\mathcal{<>} <>",
+      "\\mathcal{<>}<>",
       { f( function (_, snip) return snip.captures[1] end ), i(0) }
     ),
     {condition = in_mathzone}
