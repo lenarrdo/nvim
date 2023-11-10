@@ -1,10 +1,12 @@
+local ls = require("luasnip")
+local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 local in_text = function()
   return vim.fn['vimtex#syntax#in_mathzone']() == 0
 end
 
 return {
-  s({trig = "env", snippetType = "autosnippet"},
+  autosnippet({trig = "env"},
     fmta(
       [[
        \begin{<>}
@@ -15,7 +17,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = "fig", snippetType = "autosnippet"},
+  autosnippet({trig = "fig"},
     fmta(
       [[
         \begin{figure}[H]
@@ -28,7 +30,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = "dfig", snippetType = "autosnippet"},
+  autosnippet({trig = "dfig"},
     fmta(
       [[
         \begin{figure}[H]
@@ -43,7 +45,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = "cent", snippetType = "autosnippet"},
+  autosnippet({trig = "cent"},
     fmta(
       [[
        \begin{center}
@@ -54,7 +56,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = ",e", snippetType = "autosnippet"},
+  autosnippet({trig = ",e"},
     fmta(
     [[
       \begin{enumerate}
@@ -65,7 +67,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = ",i", snippetType = "autosnippet"},
+  autosnippet({trig = ",i"},
     fmta(
     [[
       \begin{itemize}
@@ -76,7 +78,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = "mini", snippetType = "autosnippet"},
+  autosnippet({trig = "mini"},
     fmta(
       [[
        \begin{minipage}{0.5\textwidth}
@@ -84,53 +86,6 @@ return {
        \end{minipage}
       ]],
       { i(0) }
-    ),
-    {condition = in_text * line_begin}
-  ),
-  s({trig = "pmat", snippetType = "autosnippet"},
-    fmta(
-      [[
-        \begin{pmatrix}
-          <>
-        \end{pmatrix}
-      ]],
-      { i(0) }
-    ),
-    {condition = in_text * line_begin}
-  ),
-  s({trig = "equ", snippetType = "autosnippet"},
-    fmta(
-      [[
-        \begin{equation}
-          <>
-        \end{equation}
-      ]],
-      { i(0) }
-    ),
-    {condition = in_text * line_begin}
-  ),
-  s({trig = "eqsp", snippetType = "autosnippet"},
-    fmta(
-      [[
-      \begin{equation*}
-        \begin{split}
-          <>
-        \end{split}
-      \end{equation*}
-      ]],
-      { i(0) }
-    ),
-    {condition = in_text * line_begin}
-  ),
-  s({trig = "cases", snippetType = "autosnippet"},
-    fmta(
-      [[
-       \begin{cases}
-        <> & \text{se } <> \\
-        <>
-       \end{cases}
-      ]],
-      { i(1), i(2), i(0) }
     ),
     {condition = in_text * line_begin}
   ),

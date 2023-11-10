@@ -1,34 +1,36 @@
+local ls = require("luasnip")
+local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 local in_text = function()
   return vim.fn['vimtex#syntax#in_mathzone']() == 0
 end
 
 return {
-  s({trig = ",b", snippetType = "autosnippet"},
+  autosnippet({trig = ",b"},
     fmta(
       "\\textbf{<>}<>",
       { i(1), i(0) }
     ),
     {condition = in_text}
   ),
-  s({trig = ".i", snippetType="autosnippet"},
+  autosnippet({trig = ".i"},
     {t("\\item")}, {condition = in_text * line_begin}
   ),
-  s({trig = "\"\"", snippetType = "autosnippet"},
+  autosnippet({trig = "\"\""},
     fmta(
       "``<>''<>",
       { i(1), i(0) }
     ),
     {condition = in_text}
   ),
-  s({trig = ",v", snippetType = "autosnippet"},
+  autosnippet({trig = ",v"},
     fmta(
       "\\verb|<>|<>",
       { i(1), i(0) }
     ),
     {condition = in_text}
   ),
-  s({trig = ",c", snippetType = "autosnippet"},
+  autosnippet({trig = ",c"},
     fmta(
       [[
         \chapter{<>}
@@ -38,7 +40,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = ",s", snippetType = "autosnippet"},
+  autosnippet({trig = ",s"},
     fmta(
       [[
         \section{<>}<>
@@ -47,7 +49,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = ".s", snippetType = "autosnippet"},
+  autosnippet({trig = ".s"},
     fmta(
       [[
         \subsection{<>}<>
@@ -56,7 +58,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = "-s", snippetType = "autosnippet"},
+  autosnippet({trig = "-s"},
     fmta(
       [[
         \subsubsection{<>}<>
@@ -65,7 +67,7 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
-  s({trig = ",p", snippetType = "autosnippet"},
+  autosnippet({trig = ",p"},
     fmta(
       [[
         \paragraph{<>}<>

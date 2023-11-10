@@ -1,102 +1,104 @@
+local ls = require("luasnip")
+local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 local in_mathzone = function()
   return vim.fn['vimtex#syntax#in_mathzone']() == 1
 end
 
 return {
-  s({trig = ",a", snippetType="autosnippet"},
+  autosnippet({trig = ",a"},
     {t("\\alpha")}, {condition = in_mathzone}
   ),
-  s({trig = ",b", snippetType="autosnippet"},
+  autosnippet({trig = ",b"},
     {t("\\beta")}, {condition = in_mathzone}
   ),
-  s({trig = ",g", snippetType="autosnippet"},
+  autosnippet({trig = ",g"},
     {t("\\gamma")}, {condition = in_mathzone}
   ),
-  s({trig = ",G", snippetType="autosnippet"},
+  autosnippet({trig = ",G"},
     {t("\\Gamma")}, {condition = in_mathzone}
   ),
-  s({trig = ",d", snippetType="autosnippet"},
+  autosnippet({trig = ",d"},
     {t("\\delta")}, {condition = in_mathzone}
   ),
-  s({trig = ",D", snippetType="autosnippet"},
+  autosnippet({trig = ",D"},
     {t("\\Delta")}, {condition = in_mathzone}
   ),
-  s({trig = ",ep", snippetType="autosnippet"},
+  autosnippet({trig = ",ep"},
     {t("\\varepsilon")}, {condition = in_mathzone}
   ),
-  s({trig = ",z", snippetType="autosnippet"},
+  autosnippet({trig = ",z"},
     {t("\\zeta")}, {condition = in_mathzone}
   ),
-  s({trig = ",et", snippetType="autosnippet"},
+  autosnippet({trig = ",et"},
     {t("\\eta")}, {condition = in_mathzone}
   ),
-  s({trig = ",th", snippetType="autosnippet"},
+  autosnippet({trig = ",th"},
     {t("\\theta")}, {condition = in_mathzone}
   ),
-  s({trig = ",Th", snippetType="autosnippet"},
+  autosnippet({trig = ",Th"},
     {t("\\Theta")}, {condition = in_mathzone}
   ),
-  s({trig = ",i", snippetType="autosnippet"},
+  autosnippet({trig = ",i"},
     {t("\\iota")}, {condition = in_mathzone}
   ),
-  s({trig = ",l", snippetType="autosnippet"},
+  autosnippet({trig = ",l"},
     {t("\\lambda")}, {condition = in_mathzone}
   ),
-  s({trig = ",m", snippetType="autosnippet"},
+  autosnippet({trig = ",m"},
     {t("\\mu")}, {condition = in_mathzone}
   ),
-  s({trig = ",x", snippetType="autosnippet"},
+  autosnippet({trig = ",x"},
     {t("\\xi")}, {condition = in_mathzone}
   ),
-  s({trig = ",omi", snippetType="autosnippet"},
+  autosnippet({trig = ",omi"},
     {t("\\omi")}, {condition = in_mathzone}
   ),
-  s({trig = ",Omi", snippetType="autosnippet"},
+  autosnippet({trig = ",Omi"},
     {t("\\Omicron")}, {condition = in_mathzone}
   ),
-  s({trig = ",pi", snippetType="autosnippet"},
+  autosnippet({trig = ",pi"},
     {t("\\pi")}, {condition = in_mathzone}
   ),
-  s({trig = ",r", snippetType="autosnippet"},
+  autosnippet({trig = ",r"},
     {t("\\rho")}, {condition = in_mathzone}
   ),
-  s({trig = ",s", snippetType="autosnippet"},
+  autosnippet({trig = ",s"},
     {t("\\sigma")}, {condition = in_mathzone}
   ),
-  s({trig = ",S", snippetType="autosnippet"},
+  autosnippet({trig = ",S"},
     {t("\\Sigma")}, {condition = in_mathzone}
   ),
-  s({trig = ",ta", snippetType="autosnippet"},
+  autosnippet({trig = ",ta"},
     {t("\\tau")}, {condition = in_mathzone}
   ),
-  s({trig = ",u", snippetType="autosnippet"},
+  autosnippet({trig = ",u"},
     {t("\\upsilon")}, {condition = in_mathzone}
   ),
-  s({trig = ",U", snippetType="autosnippet"},
+  autosnippet({trig = ",U"},
     {t("\\Upsilon")}, {condition = in_mathzone}
   ),
-  s({trig = ",vph", snippetType="autosnippet"},
+  autosnippet({trig = ",vph"},
     {t("\\varphi")}, {condition = in_mathzone}
   ),
-  s({trig = ",ph", snippetType="autosnippet"},
+  autosnippet({trig = ",ph"},
     {t("\\phi")}, {condition = in_mathzone}
   ),
-  s({trig = ",Ph", snippetType="autosnippet"},
+  autosnippet({trig = ",Ph"},
     {t("\\Phi")}, {condition = in_mathzone}
   ),
-  s({trig = ",c", snippetType="autosnippet"},
+  autosnippet({trig = ",c"},
     {t("\\chi")}, {condition = in_mathzone}
   ),
-  s({trig = ",ps", snippetType="autosnippet"},
+  autosnippet({trig = ",ps"},
     {t("\\psi")}, {condition = in_mathzone}
   ),
-  s({trig = ",Ps", snippetType="autosnippet"},
+  autosnippet({trig = ",Ps"},
     {t("\\Psi")}, {condition = in_mathzone}
   ),
-  s({trig = ",ome", snippetType="autosnippet"},
+  autosnippet({trig = ",ome"},
     {t("\\omega")}, {condition = in_mathzone}
   ),
-  s({trig = ",Ome", snippetType="autosnippet"},
+  autosnippet({trig = ",Ome"},
     {t("\\Omega")}, {condition = in_mathzone}
   ),
 }
