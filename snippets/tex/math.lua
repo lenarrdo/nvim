@@ -184,11 +184,14 @@ return {
   ),
 
   -- frecce
-  autosnippet({trig = "la"},
+  autosnippet({trig = "ts"},
     {t("\\gets")}, {condition = in_mathzone}
   ),
-  autosnippet({trig = "ra"},
+  autosnippet({trig = "to"},
     {t("\\to")}, {condition = in_mathzone}
+  ),
+  autosnippet({trig = "To"},
+    {t("\\Rightarrow")}, {condition = in_mathzone}
   ),
   autosnippet({trig = "imp"},
     {t("\\implies")}, {condition = in_mathzone}
@@ -267,6 +270,9 @@ return {
   ),
   autosnippet({trig = "OO"},
     {t("\\emptyset")}, {condition = in_mathzone}
+  ),
+  autosnippet({trig = "..."},
+    {t("\\dots")}, {condition = in_mathzone}
   ),
 
   -- "environments"
@@ -358,7 +364,7 @@ return {
       ]],
       { i(0) }
     ),
-    {condition = in_mathzone * line_begin}
+    {condition = in_text * line_begin}
   ),
   autosnippet({trig = "eqsp"},
     fmta(
@@ -371,7 +377,7 @@ return {
       ]],
       { i(0) }
     ),
-    {condition = in_mathzone * line_begin}
+    {condition = in_text * line_begin}
   ),
 
   -- fonts
@@ -388,5 +394,13 @@ return {
       { f( function (_, snip) return snip.captures[1] end ), i(0) }
     ),
     {condition = in_mathzone}
+  ),
+
+  -- spazi vuoti
+  autosnippet({trig = "qq"},
+    {t("\\quad")}, {condition = in_mathzone}
+  ),
+  autosnippet({trig = "QQ"},
+    {t("\\qquad")}, {condition = in_mathzone}
   ),
 }

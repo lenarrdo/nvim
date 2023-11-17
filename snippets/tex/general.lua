@@ -76,4 +76,36 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
+  autosnippet({trig = "NU"},
+    fmta(
+      [[
+        \NULL{<>}<>
+      ]],
+      { i(1), i(0) }
+    )
+  ),
+  autosnippet({trig = "FI"},
+    fmta(
+      [[
+        \FIRST{<>}<>
+      ]],
+      { i(1), i(0) }
+    )
+  ),
+  autosnippet({trig = "FO"},
+    fmta(
+      [[
+        \FOLLOW{<>}<>
+      ]],
+      { i(1), i(0) }
+    )
+  ),
+  autosnippet({trig = "GU"},
+    fmta(
+      [[
+        \GUIDA{<>}<>
+      ]],
+      { i(1), i(0) }
+    )
+  ),
 }
