@@ -13,8 +13,11 @@ map("v", ">", ">gv", { noremap = true })
 -- CTRL+Backspace in insert mode.
 map("i", "<C-H>", "<C-W>", { noremap = true })
 
--- Copia senza modificare il registro
+-- Incolla senza modificare il registro
 map("x", "<leader>p", "\"_dP")
+
+-- File explorer
+map("n", "<leader>pv", "<cmd>:Ex<cr>")
 
 -- CTRL+D, CTRL+U, G cursore sempre centrato
 map("n", "<C-d>", "<C-d>zz", { noremap = true })
@@ -28,7 +31,7 @@ map("n", "<leader>ll", "<cmd>:VimtexCompile<cr>")
 map("n", "<leader>l", "<cmd>:Lazy<cr>")
 
 -- Clear search with <esc>
-map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
 
 -- Telescope
 map("n", "<leader>ff", "<cmd>:Telescope find_files<cr>")
@@ -37,10 +40,10 @@ map("n", "<leader>ff", "<cmd>:Telescope find_files<cr>")
 map("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { noremap = true, silent = true })
 
 -- Buffers
-map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
-map("n", "<C-h>", "<cmd>BufferLineMovePrev<cr>", { desc = "Prev buffer" })
-map("n", "<C-l>", "<cmd>BufferLineMoveNext<cr>", { desc = "Next buffer" })
+map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>")
+map("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>")
+map("n", "<C-h>", "<cmd>BufferLineMovePrev<cr>")
+map("n", "<C-l>", "<cmd>BufferLineMoveNext<cr>")
 
 -- ToggleTerm
 map("n", "<C-o>", "<cmd>:ToggleTerm<cr>")
