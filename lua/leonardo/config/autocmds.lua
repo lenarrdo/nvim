@@ -38,13 +38,13 @@ autocmd("BufEnter", {
 autocmd("BufEnter", {
   pattern = {"*.java"},
   callback = function()
-    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :sp | term javac % && java % && rm *.class <cr>")
+    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :vsp | term javac % && java % && rm *.class <cr>")
   end
 })
 
 autocmd("BufEnter", {
   pattern = {"*.c"},
   callback = function()
-    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :sp | term gcc % -o a.out && ./a.out && rm *.out <cr>")
+    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :vsp | term gcc % -o a.out && ./a.out && rm *.out <cr>")
   end
 })
