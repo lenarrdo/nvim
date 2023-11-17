@@ -61,6 +61,10 @@ local plugins = {
     version = "*",
     config = true
   },
+  {
+    "nvim-treesitter/nvim-treesitter-context"
+  },
+
 
   -- Visual
   "nvim-tree/nvim-web-devicons",
@@ -109,3 +113,4 @@ require("leonardo.plugins.alpha-nvim")
 require("leonardo.plugins.lualine")
 require("leonardo.plugins.gitsigns")
 require("leonardo.plugins.toggleterm")
+require("leonardo.plugins.ts-context")
