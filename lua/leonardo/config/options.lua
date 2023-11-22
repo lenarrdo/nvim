@@ -26,6 +26,7 @@ local options = {
   undolevels = 10000,
   updatetime = 200,
   wrap = false,
+  guicursor = "",
 }
 
 local global = {
