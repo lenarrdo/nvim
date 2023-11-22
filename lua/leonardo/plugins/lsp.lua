@@ -17,6 +17,10 @@ require("lspconfig").lua_ls.setup {
   }
 }
 
+require("mason-lspconfig").setup {
+    ensure_installed = { "jdtls", "lua_ls", "clangd" },
+}
+
 lsp.skip_server_setup({'jdtls'})
 
 lsp.setup()
