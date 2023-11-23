@@ -17,15 +17,10 @@ local plugins = {
 
   -- Theme
   {
-    "navarasu/onedark.nvim",
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
     lazy = false,
     priority = 1000,
-    config = function()
-      require("onedark").setup {
-        style = "warmer"
-      }
-      require("onedark").load()
-    end
   },
 
   -- Utility
@@ -39,7 +34,10 @@ local plugins = {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = { disable_filetype = { "tex", "text" } }
+    opts = {
+      disable_filetype = { "tex", "text" },
+      enable_bracket_in_quote = false
+    }
   },
   {
     "nvim-telescope/telescope.nvim", branch = "0.1.x",
@@ -114,3 +112,4 @@ require("leonardo.plugins.lualine")
 require("leonardo.plugins.gitsigns")
 require("leonardo.plugins.toggleterm")
 require("leonardo.plugins.ts-context")
+vim.cmd("colorscheme moonfly")
