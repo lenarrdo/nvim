@@ -9,10 +9,10 @@ luasnip.config.setup({
 cmp.setup ({
   mapping = cmp.mapping.preset.insert({
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_jumpable() then
+      local entry = cmp.get_selected_entry()
+      if luasnip.expand_or_jumpable() and not entry then
         luasnip.expand_or_jump()
       elseif cmp.visible() then
-        local entry = cmp.get_selected_entry()
         if entry then
           cmp.confirm()
         else
