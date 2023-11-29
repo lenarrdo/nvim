@@ -17,61 +17,32 @@ local plugins = {
 
   -- Theme
   {
-    "bluz71/vim-moonfly-colors",
-    name = "moonfly",
-    lazy = false,
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
+    config = function()
+      vim.cmd("colorscheme catppuccin")
+    end
   },
 
   -- Utility
   "lervag/vimtex",
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end
-  },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {
-      disable_filetype = { "tex", "text" },
-      enable_bracket_in_quote = false
-    }
-  },
-  {
-    "nvim-telescope/telescope.nvim", branch = "0.1.x",
-    dependencies = { "nvim-lua/plenary.nvim" }
-  },
-  {
-    "lewis6991/gitsigns.nvim"
-  },
-  {
-    "akinsho/bufferline.nvim",
-    version = "*",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("bufferline").setup{}
-    end
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    config = true
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context"
-  },
-
+  "lewis6991/gitsigns.nvim",
+  "nvim-treesitter/nvim-treesitter-context",
+  "ggandor/leap.nvim",
+  "numToStr/Comment.nvim",
+  "akinsho/bufferline.nvim",
+  "windwp/nvim-autopairs",
 
   -- Visual
   "nvim-tree/nvim-web-devicons",
   "nvim-treesitter/nvim-treesitter",
+  "nvim-lualine/lualine.nvim",
+  "elkowar/yuck.vim",
   {
     "goolord/alpha-nvim",
     lazy = true,
   },
-  "nvim-lualine/lualine.nvim",
 
   -- LSP && Snippets
   {
@@ -104,12 +75,8 @@ local plugins = {
 require("lazy").setup(plugins)
 
 -- Config
-require("leonardo.plugins.lsp")
-require("leonardo.plugins.treesitter")
-require("leonardo.plugins.completions")
-require("leonardo.plugins.alpha-nvim")
-require("leonardo.plugins.lualine")
-require("leonardo.plugins.gitsigns")
-require("leonardo.plugins.toggleterm")
-require("leonardo.plugins.ts-context")
-vim.cmd("colorscheme moonfly")
+require("plugins.lsp")
+require("plugins.treesitter")
+require("plugins.completions")
+require("plugins.alpha-nvim")
+require("plugins.other")
