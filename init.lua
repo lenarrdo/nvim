@@ -1,1 +1,2 @@
-require("leonardo")
+require("config")
+require("plugins")
