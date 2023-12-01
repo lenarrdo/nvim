@@ -38,7 +38,6 @@ local plugins = {
   "nvim-tree/nvim-web-devicons",
   "nvim-treesitter/nvim-treesitter",
   "nvim-lualine/lualine.nvim",
-  "elkowar/yuck.vim",
   {
     "goolord/alpha-nvim",
     lazy = true,
