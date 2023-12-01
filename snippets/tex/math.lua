@@ -37,15 +37,6 @@ return {
     ),
     {condition = in_mathzone}
   ),
-  autosnippet({ trig="((\\d+)|(\\d*)(\\\\)?([A-Za-z]+)((\\^|_)(\\{\\d+\\}|\\d))*)\\/", trigEngine="ecma"},
-    fmta(
-      "\\frac{<>}{<>}<>",
-      { f(function (_, snip)
-        return snip.captures[1]
-      end), i(1), i(0) }
-    ),
-    {condition = in_mathzone}
-  ),
   autosnippet({trig = "([%w+%)%]%}])_", regTrig = true, wordTrig = false},
     fmta(
       "<>_{<>}<>",
