@@ -2,7 +2,7 @@ local ls = require("luasnip")
 local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 local in_text = function()
-  return vim.fn['vimtex#syntax#in_mathzone']() == 0
+  return vim.fn["vimtex#syntax#in_mathzone"]() == 0
 end
 
 return {
@@ -61,9 +61,9 @@ return {
     [[
       \begin{enumerate}
         \item <>
-      \end{enumerate}
+      \end{enumerate}<>
     ]],
-    { i(0) }
+    { i(1), i(0) }
     ),
     {condition = in_text * line_begin}
   ),
@@ -72,18 +72,56 @@ return {
     [[
       \begin{itemize}
         \item <>
-      \end{itemize}
+      \end{itemize}<>
     ]],
-    { i(0) }
+    { i(1), i(0) }
     ),
     {condition = in_text * line_begin}
   ),
   autosnippet({trig = "mini"},
     fmta(
       [[
-       \begin{minipage}{0.5\textwidth}
+        \begin{minipage}{0.5\textwidth}
          <>
-       \end{minipage}
+        \end{minipage}
+      ]],
+      { i(0) }
+    ),
+    {condition = in_text * line_begin}
+  ),
+  autosnippet({trig = "code"},
+    fmta(
+      [[
+        \begin{center}
+          \begin{minipage}{0.5\textwidth}
+             \begin{lstlisting}[style=<>]
+
+               <>
+            \end{lstlisting}
+          \end{minipage}
+        \end{center}
+      ]],
+      { i(1), i(0) }
+    ),
+    {condition = in_text * line_begin}
+  ),
+  autosnippet({trig = "tab"},
+    fmta(
+      [[
+       \begin{tabular}{ <> }
+         <>
+       \end{tabular}
+      ]],
+      { i(1), i(0) }
+    ),
+    {condition = in_text * line_begin}
+  ),
+  autosnippet({trig = "def"},
+    fmta(
+      [[
+       \begin{definition}
+         <>
+       \end{definition}
       ]],
       { i(0) }
     ),
