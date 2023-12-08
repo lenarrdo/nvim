@@ -2,6 +2,7 @@
 require("leap").add_default_mappings()
 require("Comment").setup()
 require("gitsigns").setup()
+require("oil").setup()
 
 require("bufferline").setup {
   highlights = require("catppuccin.groups.integrations.bufferline").get()

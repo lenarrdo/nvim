@@ -28,11 +28,11 @@ local plugins = {
   -- Utility
   "lervag/vimtex",
   "lewis6991/gitsigns.nvim",
-  "nvim-treesitter/nvim-treesitter-context",
   "ggandor/leap.nvim",
   "numToStr/Comment.nvim",
   "akinsho/bufferline.nvim",
   "windwp/nvim-autopairs",
+  "stevearc/oil.nvim",
 
   -- Visual
   "nvim-tree/nvim-web-devicons",
