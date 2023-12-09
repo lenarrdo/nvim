@@ -32,6 +32,9 @@ local options = {
 local global = {
   mapleader = " ",
   vimtex_view_method = "zathura",
+  vimtex_compiler_latexmk = {
+    continuous = 0
+  }
 }
 
 for name, value in pairs(options) do
