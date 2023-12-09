@@ -105,6 +105,22 @@ return {
     ),
     {condition = in_text * line_begin}
   ),
+  autosnippet({trig = "alg"},
+    fmta(
+      [[
+        \begin{center}
+          \colorbox[rgb]{0.95,0.95,0.92} {
+            \begin{minipage}{0.7\textwidth}
+              \begin{algorithmic}[1]
+                <>
+              \end{algorithmic}
+          \end{minipage}}
+        \end{center}
+      ]],
+      { i(0) }
+    ),
+    {condition = in_text * line_begin}
+  ),
   autosnippet({trig = "tab"},
     fmta(
       [[
