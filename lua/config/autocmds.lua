@@ -34,17 +34,30 @@ autocmd("BufEnter", {
   command = "setlocal colorcolumn=0 wrap"
 })
 
--- Compilazione ed esecuzione
+-- Compiling and executing programs
 autocmd("BufEnter", {
   pattern = {"*.java"},
   callback = function()
-    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :vsp | term javac % && java % && rm *.class <cr>")
+    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :vsp | term javac % && java % && rm *.class<cr>")
   end
 })
 
 autocmd("BufEnter", {
   pattern = {"*.c"},
   callback = function()
-    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :vsp | term gcc % -o a.out && ./a.out && rm *.out <cr>")
+    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :vsp | term gcc % -o a.out && ./a.out && rm *.out<cr>")
   end
+})
+
+autocmd("BufEnter", {
+  pattern = {"*.tex"},
+  callback = function()
+    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :VimtexCompile<cr>")
+  end
+})
+
+-- Automatically remove junk TeX files
+autocmd("VimLeavePre", {
+  pattern = {"*.tex"},
+  command = "VimtexClean"
 })
