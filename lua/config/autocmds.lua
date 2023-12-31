@@ -46,6 +46,9 @@ autocmd("BufEnter", {
   pattern = {"*.c"},
   callback = function()
     vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :vsp | term gcc % -o a.out && ./a.out && rm *.out<cr>")
+    vim.opt.expandtab = false
+    vim.opt.tabstop = 8
+    vim.opt.shiftwidth = 8
   end
 })
 
@@ -53,6 +56,22 @@ autocmd("BufEnter", {
   pattern = {"*.tex"},
   callback = function()
     vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :VimtexCompile<cr>")
+  end
+})
+
+autocmd("BufEnter", {
+  pattern = {"*.lua"},
+  callback = function()
+    vim.opt.expandtab = false
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
+  end
+})
+
+autocmd("BufEnter", {
+  pattern = {"*.scss"},
+  callback = function()
+    vim.keymap.set("n", "<leader>rj", "<cmd>:wa | !sass % style.css<cr>")
   end
 })
 
