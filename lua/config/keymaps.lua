@@ -45,3 +45,6 @@ map("n", "<leader>cp", "<cmd>BufferLinePickClose<cr>")
 map("n", "<leader>cl", "<cmd>BufferLineCloseRight<cr>")
 map("n", "<leader>ch", "<cmd>BufferLineCloseLeft<cr>")
 map("n", "<leader>co", "<cmd>BufferLineCloseOthers<cr>")
+
+-- Formatter
+map("n", "<leader>gf", vim.lsp.buf.format)
