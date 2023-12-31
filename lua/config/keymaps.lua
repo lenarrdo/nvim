@@ -16,7 +16,7 @@ map("v", ">", ">gv", { noremap = true })
 map("i", "<C-H>", "<C-W>", { noremap = true })
 
 -- Incolla senza modificare il registro
-map("x", "<leader>p", "\"_dP")
+map("x", "<leader>p", '"_dP')
 
 -- File explorer (oil.nvim)
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
