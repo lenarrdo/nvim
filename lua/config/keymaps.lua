@@ -24,6 +24,6 @@ map("n", "<s-g>", "<s-g>zz", { noremap = true })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
 
 -- Moving through diagnostics
-vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
-vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
