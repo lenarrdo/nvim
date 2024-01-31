@@ -32,10 +32,19 @@ local options = {
 
 local global = {
   mapleader = " ",
+  -- LaTeX
   vimtex_view_method = "zathura",
   vimtex_compiler_latexmk = {
     continuous = 0,
   },
+  -- Markdown
+  mkdp_theme = "light",
+  mkdp_browserfunc = "OpenMarkdownPreview",
+  mkdp_auto_close = 0,
+  mkdp_combine_preview = 1,
+
+  vim_markdown_math = 1,
+  vim_markdown_folding_disabled = 1,
 }
 
 for name, value in pairs(options) do
@@ -45,3 +54,9 @@ end
 for name, value in pairs(global) do
   vim.g[name] = value
 end
+
+vim.cmd [[
+  function OpenMarkdownPreview (url)
+    execute "silent ! firefox --new-window " . a:url
+  endfunction
+]]

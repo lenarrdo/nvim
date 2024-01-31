@@ -23,7 +23,6 @@ local plugins = {
 
   -- Utility
   "akinsho/bufferline.nvim",
-  "lervag/vimtex",
   "lewis6991/gitsigns.nvim",
   "numToStr/Comment.nvim",
   "nvim-telescope/telescope.nvim",
@@ -39,6 +38,24 @@ local plugins = {
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
+    },
+  },
+
+  -- Note taking (LaTeX and Markdown)
+  "lervag/vimtex",
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  {
+    "plasticboy/vim-markdown",
+    branch = "master",
+    dependencies = {
+      "godlygeek/tabular",
     },
   },
 
