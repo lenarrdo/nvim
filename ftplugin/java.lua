@@ -3,6 +3,13 @@ local config = {
   cmd = { "jdtls" },
   root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
   capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
+  handlers = {
+    ["language/status"] = function(_, result)
+      print("ServiceReady")
+    end,
+    ["$/progress"] = function(_, result, ctx)
+    end,
+  },
 }
 
 vim.keymap.set("n", "<leader>rj", "<cmd>:wa | :vsp | term javac % && java % && rm *.class<cr>")

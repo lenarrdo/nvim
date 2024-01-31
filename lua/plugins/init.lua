@@ -28,13 +28,19 @@ local plugins = {
   "numToStr/Comment.nvim",
   "nvim-telescope/telescope.nvim",
   "nvim-lua/plenary.nvim",
-  "folke/zen-mode.nvim",
 
   -- Visual
   "goolord/alpha-nvim",
   "nvim-lualine/lualine.nvim",
   "nvim-treesitter/nvim-treesitter",
   "nvim-tree/nvim-web-devicons",
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+  },
 
   -- LSP related
   "L3MON4D3/LuaSnip",
@@ -52,6 +58,7 @@ local plugins = {
 require("lazy").setup(plugins)
 require("Comment").setup()
 require("gitsigns").setup()
+require("noice").setup()
 
 -- Configuration files
 require("plugins.colorscheme")
