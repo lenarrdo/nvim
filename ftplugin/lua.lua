@@ -4,7 +4,7 @@ vim.lsp.start({
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "i", "f", "t", "rep", "s", "fmta", "fmt" },
       },
     },
   },
