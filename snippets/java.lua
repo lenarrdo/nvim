@@ -3,8 +3,8 @@ return {
     { trig = "so" },
     fmta(
       [[
-                System.out.print(<>);<>
-            ]],
+        System.out.print(<>);<>
+      ]],
       { i(1), i(0) }
     )
   ),
@@ -12,10 +12,10 @@ return {
     { trig = "main" },
     fmta(
       [[
-                public static void main(String[] args) {
-                    <>
-                }
-            ]],
+        public static void main(String[] args) {
+            <>
+        }
+      ]],
       { i(0) }
     )
   ),
