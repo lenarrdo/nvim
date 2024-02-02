@@ -26,7 +26,6 @@ local plugins = {
   "lewis6991/gitsigns.nvim",
   "numToStr/Comment.nvim",
   "nvim-telescope/telescope.nvim",
-  "nvim-lua/plenary.nvim",
 
   -- Visual
   "goolord/alpha-nvim",
@@ -58,6 +57,15 @@ local plugins = {
       "godlygeek/tabular",
     },
   },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 
   -- LSP related
   "L3MON4D3/LuaSnip",
@@ -85,3 +93,4 @@ require("plugins.treesitter")
 require("plugins.lualine")
 require("plugins.bufferline")
 require("plugins.telescope")
+require("plugins.obsidian")
