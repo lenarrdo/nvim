@@ -1,8 +1,8 @@
 require("obsidian").setup({
   workspaces = {
     {
-      name = "personal",
-      path = "~/vaults/personal",
+      name = "obsidian",
+      path = "~/vaults/obsidian",
     },
   },
   completion = {
@@ -11,3 +11,5 @@ require("obsidian").setup({
   },
   disable_frontmatter = true,
 })
+
+vim.keymap.set("n", "<leader>os", "<CMD>ObsidianSearch<CR>")
