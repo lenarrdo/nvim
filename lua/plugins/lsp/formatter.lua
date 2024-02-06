@@ -4,6 +4,7 @@ require("conform").setup({
     java = { "google-java-format" },
     c = { "clang_format" },
     json = { "prettier" },
+    nix = { "nixfmt" },
   },
 })
 
