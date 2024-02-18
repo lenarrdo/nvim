@@ -124,7 +124,6 @@ return {
     { condition = in_mathzone }
   ),
   autosnippet({ trig = "indint" }, { t("\\int") }, { condition = in_mathzone }),
-  autosnippet({ trig = "df" }, { t("\\diff") }, { condition = in_mathzone }),
   autosnippet(
     { trig = "sum" },
     fmta("\\sum_{<>=<>}^{<>}<>", { i(1, "i"), i(2, "0"), i(3, "+\\infty"), i(0) }),

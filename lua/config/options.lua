@@ -27,7 +27,6 @@ local options = {
   undolevels = 10000,
   updatetime = 200,
   wrap = false,
-  guicursor = "",
 }
 
 local global = {
@@ -55,8 +54,8 @@ for name, value in pairs(global) do
   vim.g[name] = value
 end
 
-vim.cmd [[
+vim.cmd([[
   function OpenMarkdownPreview (url)
     execute "silent ! firefox --new-window " . a:url
   endfunction
-]]
+]])

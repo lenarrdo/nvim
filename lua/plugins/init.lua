@@ -22,16 +22,21 @@ local plugins = {
   },
 
   -- Utility
-  "akinsho/bufferline.nvim",
+  "LnL7/vim-nix",
   "lewis6991/gitsigns.nvim",
   "numToStr/Comment.nvim",
+  "nvim-lua/plenary.nvim",
   "nvim-telescope/telescope.nvim",
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+  },
 
   -- Visual
+  "folke/zen-mode.nvim",
   "goolord/alpha-nvim",
   "nvim-lualine/lualine.nvim",
   "nvim-treesitter/nvim-treesitter",
-  "nvim-tree/nvim-web-devicons",
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -42,29 +47,23 @@ local plugins = {
 
   -- Note taking (LaTeX and Markdown)
   "lervag/vimtex",
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --   ft = { "markdown" },
+  --   build = function()
+  --     vim.fn["mkdp#util#install"]()
+  --   end,
+  -- },
   {
     "plasticboy/vim-markdown",
     branch = "master",
-    dependencies = {
-      "godlygeek/tabular",
-    },
   },
   {
     "epwalsh/obsidian.nvim",
     version = "*",
     lazy = true,
     ft = "markdown",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
   },
 
   -- LSP related
@@ -86,11 +85,11 @@ require("gitsigns").setup()
 require("noice").setup()
 
 -- Configuration files
-require("plugins.colorscheme")
-require("plugins.lsp")
 require("plugins.alpha")
-require("plugins.treesitter")
+require("plugins.colorscheme")
+require("plugins.harpoon")
+require("plugins.lsp")
 require("plugins.lualine")
-require("plugins.bufferline")
-require("plugins.telescope")
 require("plugins.obsidian")
+require("plugins.telescope")
+require("plugins.treesitter")

@@ -1,11 +1,21 @@
-require("conform").setup({
+local conform = require("conform")
+
+conform.setup({
   formatters_by_ft = {
-    lua = { "stylua" },
-    java = { "google-java-format" },
     c = { "clang_format" },
-    json = { "prettier" },
+    java = { "google-java-format" },
+    javascript = { "deno_fmt" },
+    json = { "jq" },
+    lua = { "stylua" },
+    markdown = { "deno_fmt" },
     nix = { "nixfmt" },
+    sh = { "shfmt" },
+    typescript = { "deno_fmt" },
   },
 })
 
-vim.keymap.set("n", "<leader>gf", '<CMD>lua require("conform").format()<CR>')
+conform.formatters.shfmt = {
+  prepend_args = { "-i", "2" },
+}
+
+vim.keymap.set("n", "<leader>gf", "<CMD>lua require('conform').format()<CR>")
